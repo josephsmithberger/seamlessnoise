@@ -1,0 +1,84 @@
+[gd_scene load_steps=3 format=3 uid="uid://bil8bt6jdfl1b"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_k4n4i"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8khnu"]
+seamless = true
+noise = SubResource("FastNoiseLite_k4n4i")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSplitContainer" type="VSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 500
+
+[node name="Noise" type="TextureRect" parent="VSplitContainer"]
+layout_mode = 2
+texture = SubResource("NoiseTexture2D_8khnu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Editor" type="PanelContainer" parent="VSplitContainer"]
+layout_mode = 2
+
+[node name="Dock" type="HFlowContainer" parent="VSplitContainer/Editor"]
+layout_mode = 2
+theme_override_constants/h_separation = 5
+alignment = 1
+
+[node name="Normalize" type="CheckButton" parent="VSplitContainer/Editor/Dock"]
+layout_mode = 2
+text = "Normalized"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer/Editor/Dock"]
+layout_mode = 2
+
+[node name="Export" type="Button" parent="VSplitContainer/Editor/Dock"]
+layout_mode = 2
+text = "Export Noise"
+
+[node name="Invert" type="Button" parent="VSplitContainer/Editor/Dock"]
+layout_mode = 2
+text = "Invert"
+
+[node name="Seed" type="SpinBox" parent="VSplitContainer/Editor/Dock"]
+layout_mode = 2
+tooltip_text = "Seed"
+allow_greater = true
+allow_lesser = true
+alignment = 1
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VSplitContainer/Editor"]
+layout_mode = 2
+ratio = 10.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer/Editor/AspectRatioContainer"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="VSplitContainer/Editor/AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Seamless" type="CheckButton" parent="VSplitContainer/Editor/AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+text = "Seamless"
+
+[node name="Blend" type="SpinBox" parent="VSplitContainer/Editor/AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+update_on_text_changed = true
+
+[node name="HSeparator2" type="HSeparator" parent="VSplitContainer/Editor/AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VSplitContainer/Editor/AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
