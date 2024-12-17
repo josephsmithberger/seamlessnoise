@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bil8bt6jdfl1b"]
+[gd_scene load_steps=4 format=3 uid="uid://bil8bt6jdfl1b"]
+
+[ext_resource type="Script" path="res://control.gd" id="1_u4ufd"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_k4n4i"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8khnu"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d2eo5"]
 seamless = true
 noise = SubResource("FastNoiseLite_k4n4i")
 
@@ -13,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_u4ufd")
 
 [node name="VSplitContainer" type="VSplitContainer" parent="."]
 layout_mode = 1
@@ -25,60 +28,175 @@ split_offset = 500
 
 [node name="Noise" type="TextureRect" parent="VSplitContainer"]
 layout_mode = 2
-texture = SubResource("NoiseTexture2D_8khnu")
+texture = SubResource("NoiseTexture2D_d2eo5")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Editor" type="PanelContainer" parent="VSplitContainer"]
+[node name="Menu" type="VBoxContainer" parent="VSplitContainer"]
 layout_mode = 2
 
-[node name="Dock" type="HFlowContainer" parent="VSplitContainer/Editor"]
+[node name="Dock" type="HFlowContainer" parent="VSplitContainer/Menu"]
 layout_mode = 2
 theme_override_constants/h_separation = 5
 alignment = 1
 
-[node name="Normalize" type="CheckButton" parent="VSplitContainer/Editor/Dock"]
+[node name="Normalize" type="CheckButton" parent="VSplitContainer/Menu/Dock"]
 layout_mode = 2
+button_pressed = true
 text = "Normalized"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer/Editor/Dock"]
-layout_mode = 2
-
-[node name="Export" type="Button" parent="VSplitContainer/Editor/Dock"]
+[node name="Export" type="Button" parent="VSplitContainer/Menu/Dock"]
 layout_mode = 2
 text = "Export Noise"
 
-[node name="Invert" type="Button" parent="VSplitContainer/Editor/Dock"]
+[node name="Invert" type="Button" parent="VSplitContainer/Menu/Dock"]
 layout_mode = 2
 text = "Invert"
 
-[node name="Seed" type="SpinBox" parent="VSplitContainer/Editor/Dock"]
+[node name="Seed" type="SpinBox" parent="VSplitContainer/Menu/Dock"]
 layout_mode = 2
 tooltip_text = "Seed"
 allow_greater = true
 allow_lesser = true
 alignment = 1
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VSplitContainer/Editor"]
-layout_mode = 2
-ratio = 10.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer/Editor/AspectRatioContainer"]
+[node name="HSeparator" type="HSeparator" parent="VSplitContainer/Menu"]
 layout_mode = 2
 
-[node name="HSeparator" type="HSeparator" parent="VSplitContainer/Editor/AspectRatioContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VSplitContainer/Menu"]
 layout_mode = 2
+alignment = 1
 
-[node name="Seamless" type="CheckButton" parent="VSplitContainer/Editor/AspectRatioContainer/VBoxContainer"]
+[node name="Blend" type="SpinBox" parent="VSplitContainer/Menu/HBoxContainer"]
 layout_mode = 2
-text = "Seamless"
-
-[node name="Blend" type="SpinBox" parent="VSplitContainer/Editor/AspectRatioContainer/VBoxContainer"]
-layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.1
+alignment = 1
 update_on_text_changed = true
 
-[node name="HSeparator2" type="HSeparator" parent="VSplitContainer/Editor/AspectRatioContainer/VBoxContainer"]
+[node name="Seamless" type="CheckButton" parent="VSplitContainer/Menu/HBoxContainer"]
+layout_mode = 2
+button_pressed = true
+text = "Seamless"
+
+[node name="HSeparator2" type="HSeparator" parent="VSplitContainer/Menu"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VSplitContainer/Editor/AspectRatioContainer/VBoxContainer"]
+[node name="Resolution" type="HBoxContainer" parent="VSplitContainer/Menu"]
 layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VSplitContainer/Menu/Resolution"]
+layout_mode = 2
+text = "Width
+"
+
+[node name="Width" type="SpinBox" parent="VSplitContainer/Menu/Resolution"]
+layout_mode = 2
+min_value = 1.0
+max_value = 2048.0
+value = 512.0
+exp_edit = true
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="VSplitContainer/Menu/Resolution"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Reset" type="Button" parent="VSplitContainer/Menu/Resolution"]
+layout_mode = 2
+text = "🔄"
+
+[node name="VSeparator2" type="VSeparator" parent="VSplitContainer/Menu/Resolution"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Label2" type="Label" parent="VSplitContainer/Menu/Resolution"]
+layout_mode = 2
+text = "Height"
+
+[node name="Height" type="SpinBox" parent="VSplitContainer/Menu/Resolution"]
+layout_mode = 2
+min_value = 1.0
+max_value = 2048.0
+value = 512.0
+exp_edit = true
+alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="VSplitContainer/Menu"]
+layout_mode = 2
+
+[node name="noise size" type="HBoxContainer" parent="VSplitContainer/Menu"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VSplitContainer/Menu/noise size"]
+layout_mode = 2
+text = "Frequency :"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="VSplitContainer/Menu/noise size"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.001
+max_value = 1.0
+step = 0.001
+value = 0.01
+exp_edit = true
+
+[node name="HSeparator4" type="HSeparator" parent="VSplitContainer/Menu"]
+layout_mode = 2
+
+[node name="Noise Types" type="MenuButton" parent="VSplitContainer/Menu"]
+layout_mode = 2
+text = "Noise Type"
+switch_on_hover = true
+
+[node name="Type" type="Label" parent="VSplitContainer/Menu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Simplex"
+horizontal_alignment = 1
+
+[node name="HSeparator5" type="HSeparator" parent="VSplitContainer/Menu"]
+layout_mode = 2
+
+[node name="Noise Specific" type="HBoxContainer" parent="VSplitContainer/Menu"]
+layout_mode = 2
+alignment = 1
+
+[node name="None" type="Button" parent="VSplitContainer/Menu/Noise Specific"]
+layout_mode = 2
+text = "None"
+
+[node name="FBM" type="Button" parent="VSplitContainer/Menu/Noise Specific"]
+layout_mode = 2
+text = "FBM"
+
+[node name="Ridged" type="Button" parent="VSplitContainer/Menu/Noise Specific"]
+layout_mode = 2
+text = "Ridged"
+
+[node name="PingPong" type="Button" parent="VSplitContainer/Menu/Noise Specific"]
+layout_mode = 2
+text = "Ping Pong"
+
+[connection signal="mouse_entered" from="VSplitContainer/Noise" to="." method="_on_noise_mouse_entered"]
+[connection signal="mouse_exited" from="VSplitContainer/Noise" to="." method="_on_noise_mouse_exited"]
+[connection signal="toggled" from="VSplitContainer/Menu/Dock/Normalize" to="." method="_on_normalize_toggled"]
+[connection signal="pressed" from="VSplitContainer/Menu/Dock/Export" to="." method="_on_export_pressed"]
+[connection signal="pressed" from="VSplitContainer/Menu/Dock/Invert" to="." method="_on_invert_pressed"]
+[connection signal="value_changed" from="VSplitContainer/Menu/Dock/Seed" to="." method="_on_seed_value_changed"]
+[connection signal="value_changed" from="VSplitContainer/Menu/HBoxContainer/Blend" to="." method="_on_blend_value_changed"]
+[connection signal="toggled" from="VSplitContainer/Menu/HBoxContainer/Seamless" to="." method="_on_seamless_toggled"]
+[connection signal="value_changed" from="VSplitContainer/Menu/Resolution/Width" to="." method="_on_width_value_changed"]
+[connection signal="pressed" from="VSplitContainer/Menu/Resolution/Reset" to="." method="_on_reset_pressed"]
+[connection signal="value_changed" from="VSplitContainer/Menu/Resolution/Height" to="." method="_on_height_value_changed"]
+[connection signal="value_changed" from="VSplitContainer/Menu/noise size/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="VSplitContainer/Menu/Noise Specific/None" to="." method="_on_none_pressed"]
+[connection signal="pressed" from="VSplitContainer/Menu/Noise Specific/FBM" to="." method="_on_fbm_pressed"]
+[connection signal="pressed" from="VSplitContainer/Menu/Noise Specific/Ridged" to="." method="_on_ridged_pressed"]
+[connection signal="pressed" from="VSplitContainer/Menu/Noise Specific/PingPong" to="." method="_on_ping_pong_pressed"]
