@@ -45,19 +45,25 @@ func _on_export_pressed() -> void:
 	if base_path:
 		# Get the texture data
 		var image = noise_rect.get_image()
-		# Save regular texture
-		image.save_png(base_path)
 		
-		# Create normal map from height data
+		# Create a new clean image
+		var clean_image = Image.create(image.get_width(), image.get_height(), false, Image.FORMAT_RGB8)
+		
+		# Copy the pixel data without any filters or metadata
+		image.convert(Image.FORMAT_RGB8)
+		clean_image.copy_from(image)
+		
+		# Save regular texture
+		clean_image.save_png(base_path)
+		
+		# Create normal map from original height data
 		var normal_image = create_normal_map(image)
-		# Add _normal suffix before the extension
 		var normal_path = base_path.get_basename() + "_normal" + ".png"
 		normal_image.save_png(normal_path)
 	
 	# Restore previous state
 	noise_rect.as_normal_map = was_normal_map
 	is_exporting = false
-
 func create_normal_map(height_map: Image) -> Image:
 	var width = height_map.get_width()
 	var height = height_map.get_height()
@@ -166,7 +172,7 @@ func _on_ping_pong_pressed() -> void:
 
 # Preview normal map on hover
 func _on_noise_mouse_entered() -> void:
-	if not is_exporting:
+	if not is_exporting and not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		noise_rect.as_normal_map = true
 
 func _on_noise_mouse_exited() -> void:

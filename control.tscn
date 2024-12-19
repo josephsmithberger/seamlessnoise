@@ -1,12 +1,150 @@
-[gd_scene load_steps=4 format=3 uid="uid://bil8bt6jdfl1b"]
+[gd_scene load_steps=22 format=3 uid="uid://bil8bt6jdfl1b"]
 
 [ext_resource type="Script" path="res://control.gd" id="1_u4ufd"]
+[ext_resource type="FontFile" uid="uid://d0nn58jotpb3y" path="res://Coolvetica Rg.otf" id="2_ohokj"]
+[ext_resource type="Shader" path="res://curved.gdshader" id="3_nieq0"]
+
+[sub_resource type="Gradient" id="Gradient_qbm8p"]
+offsets = PackedFloat32Array(0, 0.542208, 1)
+colors = PackedColorArray(0.945098, 0.454902, 0.345098, 1, 0.888683, 0.479474, 0.376212, 1, 0.916345, 0.436137, 0.388437, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_svmsh"]
+gradient = SubResource("Gradient_qbm8p")
+fill_from = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wi8ow"]
+bg_color = Color(0.775063, 0.775063, 0.775063, 0.145098)
+border_width_left = 4
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0.67451)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ipo5"]
+content_margin_left = 5.0
+bg_color = Color(0.776471, 0.776471, 0.776471, 0.145098)
+border_width_left = 4
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0.576471)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0o4i"]
+content_margin_left = 5.0
+content_margin_right = 0.0
+bg_color = Color(0.776471, 0.776471, 0.776471, 0.145098)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.8, 0.8, 0.8, 0.576471)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_size = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o3kwq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3swp"]
+bg_color = Color(0.482353, 0.627451, 0.686275, 0.309804)
+border_width_left = 4
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0.486275)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_5nmg4"]
+color = Color(0.615686, 0.258824, 0.180392, 0.368627)
+thickness = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_odags"]
+
+[sub_resource type="Image" id="Image_fq62q"]
+data = {
+"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 76, 255, 255, 255, 75, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 99, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 99, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 4, 255, 255, 255, 122, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 121, 255, 255, 255, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 12, 255, 255, 255, 142, 255, 255, 255, 191, 255, 255, 255, 181, 255, 255, 255, 53, 255, 255, 255, 53, 255, 255, 255, 181, 255, 255, 255, 191, 255, 255, 255, 142, 255, 255, 255, 12, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 71, 255, 255, 255, 191, 255, 255, 255, 171, 255, 255, 255, 36, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 36, 255, 255, 255, 171, 255, 255, 255, 191, 255, 255, 255, 71, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 86, 255, 255, 255, 22, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 22, 255, 255, 255, 86, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 86, 255, 255, 255, 22, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 22, 255, 255, 255, 86, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 71, 255, 255, 255, 191, 255, 255, 255, 171, 255, 255, 255, 36, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 36, 255, 255, 255, 171, 255, 255, 255, 191, 255, 255, 255, 71, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 12, 255, 255, 255, 142, 255, 255, 255, 191, 255, 255, 255, 181, 255, 255, 255, 53, 255, 255, 255, 54, 255, 255, 255, 182, 255, 255, 255, 191, 255, 255, 255, 142, 255, 255, 255, 12, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 4, 255, 255, 255, 121, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 121, 255, 255, 255, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 98, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 98, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 75, 255, 255, 255, 75, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
+"format": "RGBA8",
+"height": 16,
+"mipmaps": false,
+"width": 16
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_cg6jh"]
+image = SubResource("Image_fq62q")
+
+[sub_resource type="Theme" id="Theme_e7psi"]
+default_font = ExtResource("2_ohokj")
+default_font_size = 20
+Button/colors/font_outline_color = Color(0.945098, 0.454902, 0.345098, 1)
+Button/styles/hover = SubResource("StyleBoxFlat_wi8ow")
+Button/styles/normal = SubResource("StyleBoxFlat_2ipo5")
+Button/styles/pressed = SubResource("StyleBoxFlat_n0o4i")
+CheckButton/colors/font_color = Color(0.87451, 0.87451, 0.87451, 1)
+CheckButton/colors/font_disabled_color = Color(0, 0, 0, 1)
+CheckButton/colors/font_focus_color = Color(1, 1, 1, 1)
+CheckButton/colors/font_hover_color = Color(1, 1, 1, 1)
+CheckButton/colors/font_hover_pressed_color = Color(0.886262, 0.886261, 0.886262, 1)
+CheckButton/colors/font_outline_color = Color(0, 0, 0, 1)
+CheckButton/colors/font_pressed_color = Color(0.884099, 0.884099, 0.884099, 1)
+CheckButton/constants/check_v_offset = 0
+CheckButton/constants/h_separation = 0
+CheckButton/constants/outline_size = 0
+CheckButton/font_sizes/font_size = 20
+CheckButton/fonts/font = ExtResource("2_ohokj")
+CheckButton/icons/checked = null
+CheckButton/icons/checked_disabled = null
+CheckButton/icons/checked_disabled_mirrored = null
+CheckButton/icons/checked_mirrored = null
+CheckButton/icons/unchecked = null
+CheckButton/icons/unchecked_disabled = null
+CheckButton/icons/unchecked_disabled_mirrored = null
+CheckButton/icons/unchecked_mirrored = null
+CheckButton/styles/disabled = null
+CheckButton/styles/focus = SubResource("StyleBoxTexture_o3kwq")
+CheckButton/styles/hover = SubResource("StyleBoxFlat_wi8ow")
+CheckButton/styles/hover_pressed = SubResource("StyleBoxFlat_w3swp")
+CheckButton/styles/normal = SubResource("StyleBoxFlat_2ipo5")
+CheckButton/styles/pressed = SubResource("StyleBoxFlat_n0o4i")
+HSeparator/styles/separator = SubResource("StyleBoxLine_5nmg4")
+MenuButton/styles/normal = SubResource("StyleBoxEmpty_odags")
+SpinBox/icons/updown = SubResource("ImageTexture_cg6jh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w6de6"]
+shader = ExtResource("3_nieq0")
+shader_parameter/corner_radius = 0.058
+shader_parameter/border_width = 0.0
+shader_parameter/border_color = Color(1, 1, 1, 1)
+shader_parameter/smoothness = 0.015
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_k4n4i"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d2eo5"]
 seamless = true
 noise = SubResource("FastNoiseLite_k4n4i")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hjhel"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+shadow_color = Color(0, 0, 0, 0.380392)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3orku"]
+bg_color = Color(0.6, 0.6, 0.6, 0.301961)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cpkyc"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -17,6 +155,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u4ufd")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_svmsh")
+
 [node name="VSplitContainer" type="VSplitContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -24,9 +171,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_e7psi")
 split_offset = 500
 
 [node name="Noise" type="TextureRect" parent="VSplitContainer"]
+material = SubResource("ShaderMaterial_w6de6")
 layout_mode = 2
 texture = SubResource("NoiseTexture2D_d2eo5")
 expand_mode = 1
@@ -107,6 +256,10 @@ theme_override_constants/separation = 25
 
 [node name="Reset" type="Button" parent="VSplitContainer/Menu/Resolution"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_hjhel")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3orku")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cpkyc")
 text = "🔄"
 
 [node name="VSeparator2" type="VSeparator" parent="VSplitContainer/Menu/Resolution"]
@@ -132,10 +285,9 @@ layout_mode = 2
 [node name="noise size" type="HBoxContainer" parent="VSplitContainer/Menu"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VSplitContainer/Menu/noise size"]
+[node name="VSeparator2" type="VSeparator" parent="VSplitContainer/Menu/noise size"]
 layout_mode = 2
-text = "Frequency :"
-horizontal_alignment = 1
+theme_override_constants/separation = 30
 
 [node name="HSlider" type="HSlider" parent="VSplitContainer/Menu/noise size"]
 layout_direction = 3
@@ -146,6 +298,10 @@ max_value = 1.0
 step = 0.001
 value = 0.01
 exp_edit = true
+
+[node name="VSeparator" type="VSeparator" parent="VSplitContainer/Menu/noise size"]
+layout_mode = 2
+theme_override_constants/separation = 30
 
 [node name="HSeparator4" type="HSeparator" parent="VSplitContainer/Menu"]
 layout_mode = 2
@@ -183,6 +339,18 @@ text = "Ridged"
 [node name="PingPong" type="Button" parent="VSplitContainer/Menu/Noise Specific"]
 layout_mode = 2
 text = "Ping Pong"
+
+[node name="HSeparator6" type="HSeparator" parent="VSplitContainer/Menu"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VSplitContainer/Menu"]
+layout_mode = 2
+
+[node name="LinkButton" type="LinkButton" parent="VSplitContainer/Menu/CenterContainer"]
+layout_mode = 2
+text = "JOSEPH SMITHBERGER"
+underline = 1
+uri = "https://github.com/josephsmithberger"
 
 [connection signal="mouse_entered" from="VSplitContainer/Noise" to="." method="_on_noise_mouse_entered"]
 [connection signal="mouse_exited" from="VSplitContainer/Noise" to="." method="_on_noise_mouse_exited"]
